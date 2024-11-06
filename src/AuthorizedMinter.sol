@@ -3,9 +3,8 @@ pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/utils/Context.sol";
 
-
 abstract contract AuthorizedMinter is Context {
-    mapping (address => bool) public authorizedMinters;
+    mapping(address => bool) public authorizedMinters;
 
     event MinterAuthorized(address minter);
     event MinterDeAuthorized(address minter);
