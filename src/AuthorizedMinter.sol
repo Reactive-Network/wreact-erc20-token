@@ -9,6 +9,9 @@ abstract contract AuthorizedMinter is Context {
     event MinterAuthorized(address minter);
     event MinterDeAuthorized(address minter);
 
+    error MinterAlreadyAuthorized(address);
+    error MinterAlreadyDeAuthorized(address);
+
     error MinterUnauthorized(address);
 
     modifier onlyAuthorizedMinter() {
@@ -23,12 +26,20 @@ abstract contract AuthorizedMinter is Context {
     }
 
     function _authorizeMinter(address minter) internal {
+        if (authorizedMinters[minter]) {
+            revert MinterAlreadyAuthorized(minter);
+        }
+
         authorizedMinters[minter] = true;
 
         emit MinterAuthorized(minter);
     }
 
     function _deAuthorizeMinter(address minter) internal {
+        if (!authorizedMinters[minter]) {
+            revert MinterAlreadyDeAuthorized(minter);
+        }
+
         authorizedMinters[minter] = false;
 
         emit MinterDeAuthorized(minter);

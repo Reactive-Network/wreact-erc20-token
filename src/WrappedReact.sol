@@ -3,7 +3,7 @@ pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./AuthorizedMinter.sol";
+import {AuthorizedMinter} from "./AuthorizedMinter.sol";
 
 contract WrappedReact is ERC20, Ownable, AuthorizedMinter {
     constructor() ERC20("Wrapped REACT", "wREACT") Ownable(msg.sender) {}
