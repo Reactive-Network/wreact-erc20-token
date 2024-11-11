@@ -2,6 +2,7 @@
 cache/
 out/
 src/artifacts
+broadcast/
 
 # Ignores development broadcast logs
 !/broadcast
