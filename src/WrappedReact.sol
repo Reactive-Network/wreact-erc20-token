@@ -25,7 +25,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import {AuthorizedMinter} from "./AuthorizedMinter.sol";
 
 contract WrappedReact is ERC20, Ownable, AuthorizedMinter {
-    constructor() ERC20("Wrapped REACT", "wREACT") Ownable(msg.sender) {}
+    constructor() ERC20("Wrapped REACT", "REACT") Ownable(msg.sender) {}
 
     function authorizeMinter(address minter) public onlyOwner {
         _authorizeMinter(minter);
