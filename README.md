@@ -1,66 +1,66 @@
-## Foundry
+# Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Foundry is a **blazing fast, portable and modular toolkit** for Ethereum application development, written in Rust.
 
-Foundry consists of:
+## Foundry components
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- **Forge**: An Ethereum testing framework, similar to Truffle, Hardhat, and DappTools.
+- **Cast**: A Swiss army knife for interacting with EVM smart contracts, sending transactions, and retriving blockchain data.
+- **Anvil**: A local Ethereum node, comparable to Ganache or Hardhat Network.
+- **Chisel**: A fast, utilitarian, and verbose solidity REPL (Read-Eval-Print Loop).
 
 ## Documentation
 
-https://book.getfoundry.sh/
+Find detailed documentation at [Foundry Book](https://book.getfoundry.sh/).
 
-## Usage
+## Usage Commands
 
 ### Build
 
-```shell
-$ forge build
+```bash
+forge build
 ```
 
 ### Test
 
-```shell
-$ forge test
+```bash
+forge test
 ```
 
-### Format
+### Format Code
 
-```shell
-$ forge fmt
+```bash
+forge fmt
 ```
 
 ### Gas Snapshots
 
-```shell
-$ forge snapshot
+```bash
+forge snapshot
 ```
 
-### Anvil
+### Run a Local Node
 
-```shell
-$ anvil
+```bash
+anvil
 ```
 
-### Deploy
+### Deploy a Contract
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```bash
+forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
 
-### Cast
+### Use Cast
 
-```shell
-$ cast <subcommand>
+```bash
+cast <subcommand>
 ```
 
-### Help
+### Get Help
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```bash
+forge --help
+anvil --help
+cast --help
 ```
