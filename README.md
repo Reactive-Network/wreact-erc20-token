@@ -2,7 +2,7 @@
 
 Foundry is a blazing fast, portable and modular toolkit for Ethereum application development, written in Rust.
 
-## Foundry components
+## Foundry Components
 
 - **Forge**: An Ethereum testing framework, similar to Truffle, Hardhat, and DappTools.
 - **Cast**: A Swiss army knife for interacting with EVM smart contracts, sending transactions, and retriving blockchain data.
