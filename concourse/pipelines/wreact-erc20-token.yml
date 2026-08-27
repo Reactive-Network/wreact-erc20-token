@@ -51,7 +51,6 @@ groups:
 
 jobs:
   - name: set-self
-    timeout: 15m
     build_log_retention:
       builds: 50
     plan:
@@ -76,7 +75,6 @@ jobs:
         file: rendered/pipeline.yml
 
   - name: unit-test
-    timeout: 30m
     build_log_retention:
       builds: 50
     plan:

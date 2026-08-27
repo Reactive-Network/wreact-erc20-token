@@ -14,7 +14,7 @@ install_forge() {
   if [ -f /etc/alpine-release ]; then
     platform="alpine"
   fi
-  foundryup --install 1.7.7 --platform "${platform}"
+  foundryup --install 1.8.0 --platform "${platform}"
   hash -r
   command -v forge >/dev/null 2>&1
 }
