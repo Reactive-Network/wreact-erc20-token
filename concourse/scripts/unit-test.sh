@@ -9,12 +9,14 @@ install_forge() {
   curl -L https://foundry.paradigm.xyz | bash
   export PATH="${HOME}/.foundry/bin:${PATH}"
   # foundryup 0.0.8+: -v is --version (does not install). Use --install.
-  # Builder image is Alpine/musl; glibc linux binaries will not run.
-  local platform="linux"
+  # 1.7.7 has no alpine tarball; 1.8.0 alpine drops testFail* (app tests still use it).
+  # Run the glibc 1.7.7 binaries on Alpine via gcompat.
   if [ -f /etc/alpine-release ]; then
-    platform="alpine"
+    apk add --no-cache gcompat libgcc >/dev/null
+    foundryup --install 1.7.7 --platform linux
+  else
+    foundryup --install 1.7.7 --platform linux
   fi
-  foundryup --install 1.8.0 --platform "${platform}"
   hash -r
   command -v forge >/dev/null 2>&1
 }
