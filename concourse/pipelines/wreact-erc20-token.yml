@@ -9,7 +9,7 @@ resources:
       paths: [concourse/]
       username: ((github-access-token.username))
       password: ((github-access-token.password))
-    check_every: 1m
+    check_every: 10m
 
   - name: app-git-concourse
     type: git
@@ -21,7 +21,7 @@ resources:
       username: ((github-access-token.username))
       password: ((github-access-token.password))
     webhook_token: ((webhook-token-wreact-erc20-token))
-    check_every: 1m
+    check_every: 10m
 
   - name: app-git
     type: git
@@ -32,7 +32,7 @@ resources:
       username: ((github-access-token.username))
       password: ((github-access-token.password))
     webhook_token: ((webhook-token-wreact-erc20-token))
-    check_every: 1m
+    check_every: 10m
 
   - name: builder-image
     type: registry-image
@@ -51,6 +51,9 @@ groups:
 
 jobs:
   - name: set-self
+    timeout: 15m
+    build_log_retention:
+      builds: 50
     plan:
       - in_parallel:
           - get: app-git-concourse
@@ -73,6 +76,9 @@ jobs:
         file: rendered/pipeline.yml
 
   - name: unit-test
+    timeout: 30m
+    build_log_retention:
+      builds: 50
     plan:
       - in_parallel:
           steps:
